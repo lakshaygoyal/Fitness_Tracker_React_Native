@@ -1,18 +1,11 @@
 import React from 'react';
-
 import LoginView from './LoginView';
 import SignupView from './SignupView';
-
-import TodayView from './TodayView'
-import ExercisesView from './ExercisesView'
-import ProfileView from './ProfileView'
-
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Apparea from './Apparea';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-import { TouchableOpacity, Image, View, Text } from 'react-native';
+import {  View } from 'react-native';
 
 class App extends React.Component {
 
@@ -54,10 +47,11 @@ class App extends React.Component {
    */
   SignoutButton = () => {
     return <>
-      <View style={{ flexDirection: 'row', marginRight: 25 }}>
-        <TouchableOpacity onPress={() => alert("We should probably change this to log us out! An icon would be nice too!")}>
-          <Text> X</Text>
-        </TouchableOpacity>
+      <View style={{ flexDirection: 'row', marginRight: 25, marginLeft: 5  }}>
+        {/* <TouchableOpacity onPress={() => this.revokeAccessToken()}> */}
+          {/* <Text>X</Text> */}
+        <Ionicons name='ios-log-out' size={25} color='black' onPress={() => this.revokeAccessToken()}/> 
+        {/* </TouchableOpacity> */}
       </View>
     </>
   }
@@ -109,13 +103,12 @@ class App extends React.Component {
             </>
           ) : (
               <>
-                <AuthStack.Screen name="FitnessTracker" options={{
+              <AuthStack.Screen name="FitnessTracker" options={{
                   headerLeft: this.SignoutButton
                 }}>
-                  {(props) => <ProfileView {...props} username={this.state.username} accessToken={this.state.accessToken} revokeAccessToken={this.revokeAccessToken} />}
+                  {(props) => <Apparea {...props} username={this.state.username} accessToken={this.state.accessToken}/>}
                 </AuthStack.Screen>
               </>
-
             )}
         </AuthStack.Navigator>
       </NavigationContainer>

@@ -91,9 +91,6 @@ class ProfileView extends React.Component {
 
   }
 
-  backToLogin() {
-    this.props.revokeAccessToken();
-  }
 
   /**
    * Displays and collects the profile information.
@@ -205,7 +202,6 @@ class ProfileView extends React.Component {
         <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
           <Button color="#942a21" style={styles.buttonInline} title="Save Profile" onPress={() => this.handleSaveProfile()} />
           <View style={styles.spaceHorizontal} />
-          <Button color="#a1635f" style={styles.buttonInline} title="Exit" onPress={() => this.backToLogin()} />
         </View>
         <View style={styles.space} />
       </ScrollView>
