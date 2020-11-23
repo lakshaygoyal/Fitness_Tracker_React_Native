@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import base64 from 'base-64';
 
 class LoginView extends React.Component {
@@ -56,31 +56,98 @@ class LoginView extends React.Component {
    */
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.bigText}>FitnessTracker</Text>
-        <Text>Welcome! Please login or signup to continue.</Text>
+      <View style={styles.container} >
+        <Text style={styles.bigText} accessible={true}
+          accessibilityLabel='Fitness Tracker Login View'>
+          FitnessTracker</Text>
+        <View>
+          <Text accessible={true}
+            accessibilityLabel='Welcome! Please login or signup to continue.'
+          >
+            Welcome! Please login or signup to continue.
+          </Text>
+        </View>
+
         <View style={styles.space} />
-        <TextInput style={styles.input}
+        <TextInput
+          // underlineColorAndroid="transparent"
+          // placeholder="Username"
+          // placeholderTextColor="#992a20"
+          // onChangeText={(username) => this.setState({ username: username })}
+          // value={this.state.username}
+          // autoCapitalize="none" 
+          // accessible={true} 
+          // accessibilityLabel="Username Field" 
+          // accessibilityHint="Input Username and Password to authenticate"
+
+          accessible={true}
           underlineColorAndroid="transparent"
-          placeholder="Username"
-          placeholderTextColor="#992a20"
+          // placeholder="Enter Username"
+          // placeholderTextColor="#992a20"
           onChangeText={(username) => this.setState({ username: username })}
           value={this.state.username}
-          autoCapitalize="none" />
-        <TextInput style={styles.input}
+          autoCapitalize="none"
+          accessibilityLabel={'Username.'}
+          accessibilityHint={'Enter your Username please, at least 5 characters'}
+          style={styles.input} />
+        <TextInput
+          // secureTextEntry={true}
+          // underlineColorAndroid="transparent"
+          // // placeholder="Password"
+          // // placeholderTextColor="#992a20"
+          // onChangeText={(password) => this.setState({ password: password })}
+          // value={this.state.password}
+          // autoCapitalize="none" 
+          // accessible={true} 
+          // accessibilityLabel="Password Field" 
+          // accessibilityHint="Input Username and Password to authenticate"
+
+
+          accessible={true}
           secureTextEntry={true}
           underlineColorAndroid="transparent"
-          placeholder="Password"
-          placeholderTextColor="#992a20"
+          // placeholder="Enter Password"
+          // placeholderTextColor="#992a20"
           onChangeText={(password) => this.setState({ password: password })}
           value={this.state.password}
-          autoCapitalize="none" />
+          autoCapitalize="none"
+          // accessibilityLabel={'enter your password please'}
+
+          accessibilityLabel={'Password'}
+          accessibilityHint={'Enter your Password please, at least 5 characters'}
+          style={styles.input} />
+
+
         <View style={styles.space} />
         <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-          <Button color="#942a21" style={styles.buttonInline} title="Login" onPress={this.handleLogin} />
+          {/* <Button color="#942a21" style={styles.buttonInline} title="Login" onPress={this.handleLogin}
+            accessible={true} accessibilityLabel="Login Button" accessibilityHint="Authenticates and navigates to Today's View page"
+          /> */}
+
+          <TouchableOpacity
+          accessible = {true}
+          accessibilityLabel = {'LogIn button'}
+          accessibilityHint = {'Navigates to Todays view Tab'}
+            style={styles.buttonInline}
+            onPress={this.handleLogin}
+          >
+            <Text style={{color:'#ffffff'}}>Login</Text>
+          </TouchableOpacity>
           <View style={styles.spaceHorizontal} />
-          <Button color="#942a21" style={styles.buttonInline} title="Signup" onPress={this.handleSignup} />
+          {/* <Button color="#942a21" style={styles.buttonInline} title="Signup" onPress={this.handleSignup}
+          accessible={true} accessibilityLabel="SignUp Button" accessibilityHint="Navigates to SignUp Page"
+          /> */}
+          <TouchableOpacity
+          accessible = {true}
+          accessibilityLabel = {'Signup button'}
+          accessibilityHint = {'Navigates to Signup view'}
+            style={styles.buttonInline}
+            onPress={this.handleSignup}
+          >
+            <Text style={{color:'#ffffff'}}>Signup</Text>
+          </TouchableOpacity>
         </View>
+
       </View>
     );
   }
@@ -107,7 +174,10 @@ const styles = StyleSheet.create({
     width: 20
   },
   buttonInline: {
-    display: "flex"
+    display: "flex",
+    backgroundColor: "#942a21",
+    alignItems: "center",
+    padding: 10
   },
   input: {
     width: 200,

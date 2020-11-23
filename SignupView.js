@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput , TouchableOpacity} from 'react-native';
 
 class SignupView extends React.Component {
 
@@ -61,30 +61,61 @@ class SignupView extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.bigText}>FitnessTracker</Text>
-        <Text>New here? Let's get started!</Text>
-        <Text>Please create an account below.</Text>
+        <Text style={styles.bigText}accessible={true}
+          accessibilityLabel='Fitness Tracker Signup View'>FitnessTracker</Text>
+        <Text
+        accessible={true}
+        // style={{justifyContent:'center'}}
+        accessibilityLabel='Please create an account below.'>
+          New here? Let's get started! Please create an account below.</Text>
         <View style={styles.space} />
         <TextInput style={styles.input}
+          accessible={true}
           underlineColorAndroid="transparent"
-          placeholder="Username"
-          placeholderTextColor="#992a20"
+          // placeholder="Username"
+          // placeholderTextColor="#992a20"
           onChangeText={(username) => this.setState({ username: username })}
           value={this.state.username}
+          accessibilityLabel={'Username.'}
+          accessibilityHint={'Enter your Username please, at least 5 characters'}
           autoCapitalize="none" />
         <TextInput style={styles.input}
+          accessible={true}
           secureTextEntry={true}
           underlineColorAndroid="transparent"
-          placeholder="Password"
+          // placeholder="Password"
           onChangeText={(password) => this.setState({ password: password })}
           value={this.state.password}
-          placeholderTextColor="#992a20"
+          accessibilityLabel={'Password'}
+          accessibilityHint={'Enter your Password please, at least 5 characters'}
+          // placeholderTextColor="#992a20"
           autoCapitalize="none" />
         <View style={styles.space} />
         <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-          <Button color="#942a21" style={styles.buttonInline} title="Create Account" onPress={this.handleCreateAccount} />
+
+          {/* <Button color="#942a21" style={styles.buttonInline} title="Create Account" onPress={this.handleCreateAccount} /> */}
+
+          <TouchableOpacity
+          accessible = {true}
+          accessibilityLabel = {'Create Account button'}
+          accessibilityHint = {'Signup a new user and Navigates to Login view'}
+          style={styles.buttonInline}
+          onPress={this.handleCreateAccount}
+          >
+            <Text style={{color:'#ffffff'}}>Create Account</Text>
+          </TouchableOpacity>
+
           <View style={styles.spaceHorizontal} />
-          <Button color="#a1635f" style={styles.buttonInline} title="Nevermind!" onPress={this.backToLogin} />
+          {/* <Button color="#a1635f" style={styles.buttonInline} title="Nevermind!" onPress={this.backToLogin} /> */}
+          <TouchableOpacity
+          accessible = {true}
+          accessibilityLabel = {'Never Mind button'}
+          accessibilityHint = {'Navigates to Login view'}
+          style={styles.buttonInline}
+          onPress={this.backToLogin}
+          >
+            <Text style={{color:'#ffffff'}}>Never Mind</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -112,7 +143,10 @@ const styles = StyleSheet.create({
     width: 20
   },
   buttonInline: {
-    display: "flex"
+    display: "flex",
+    backgroundColor: "#942a21",
+    alignItems: "center",
+    padding: 10
   },
   input: {
     width: 200,
