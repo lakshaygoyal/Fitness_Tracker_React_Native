@@ -70,25 +70,25 @@ class SignupView extends React.Component {
           New here? Let's get started! Please create an account below.</Text>
         <View style={styles.space} />
         <TextInput style={styles.input}
-          accessible={true}
+          // accessible={true}
           underlineColorAndroid="transparent"
-          // placeholder="Username"
-          // placeholderTextColor="#992a20"
+          placeholder="Username"
+          placeholderTextColor="#992a20"
           onChangeText={(username) => this.setState({ username: username })}
           value={this.state.username}
-          accessibilityLabel={'Username.'}
-          accessibilityHint={'Enter your Username please, at least 5 characters'}
+          // accessibilityLabel={'Username.'}
+          // accessibilityHint={'Enter your Username please, at least 5 characters'}
           autoCapitalize="none" />
         <TextInput style={styles.input}
-          accessible={true}
+          // accessible={true}
           secureTextEntry={true}
           underlineColorAndroid="transparent"
-          // placeholder="Password"
+          placeholder="Password"
           onChangeText={(password) => this.setState({ password: password })}
           value={this.state.password}
-          accessibilityLabel={'Password'}
-          accessibilityHint={'Enter your Password please, at least 5 characters'}
-          // placeholderTextColor="#992a20"
+          // accessibilityLabel={'Password'}
+          // accessibilityHint={'Enter your Password please, at least 5 characters'}
+          placeholderTextColor="#992a20"
           autoCapitalize="none" />
         <View style={styles.space} />
         <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>

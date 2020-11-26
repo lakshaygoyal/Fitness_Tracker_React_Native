@@ -70,51 +70,30 @@ class LoginView extends React.Component {
 
         <View style={styles.space} />
         <TextInput
-          // underlineColorAndroid="transparent"
-          // placeholder="Username"
-          // placeholderTextColor="#992a20"
-          // onChangeText={(username) => this.setState({ username: username })}
-          // value={this.state.username}
-          // autoCapitalize="none" 
-          // accessible={true} 
-          // accessibilityLabel="Username Field" 
-          // accessibilityHint="Input Username and Password to authenticate"
 
-          accessible={true}
+          // accessible={true}
           underlineColorAndroid="transparent"
-          // placeholder="Enter Username"
-          // placeholderTextColor="#992a20"
+          placeholder="Enter Username"
+          placeholderTextColor="#992a20"
           onChangeText={(username) => this.setState({ username: username })}
           value={this.state.username}
           autoCapitalize="none"
-          accessibilityLabel={'Username.'}
-          accessibilityHint={'Enter your Username please, at least 5 characters'}
+          // accessibilityLabel={'Username.'}
+          // accessibilityHint={'Enter your Username please, at least 5 characters'}
           style={styles.input} />
         <TextInput
-          // secureTextEntry={true}
-          // underlineColorAndroid="transparent"
-          // // placeholder="Password"
-          // // placeholderTextColor="#992a20"
-          // onChangeText={(password) => this.setState({ password: password })}
-          // value={this.state.password}
-          // autoCapitalize="none" 
-          // accessible={true} 
-          // accessibilityLabel="Password Field" 
-          // accessibilityHint="Input Username and Password to authenticate"
 
 
-          accessible={true}
+          // accessible={true}
           secureTextEntry={true}
           underlineColorAndroid="transparent"
-          // placeholder="Enter Password"
-          // placeholderTextColor="#992a20"
+          placeholder="Enter Password"
+          placeholderTextColor="#992a20"
           onChangeText={(password) => this.setState({ password: password })}
           value={this.state.password}
           autoCapitalize="none"
-          // accessibilityLabel={'enter your password please'}
-
-          accessibilityLabel={'Password'}
-          accessibilityHint={'Enter your Password please, at least 5 characters'}
+          // accessibilityLabel={'Password'}
+          // accessibilityHint={'Enter your Password please, at least 5 characters'}
           style={styles.input} />
 
 
